@@ -1,0 +1,24 @@
+{
+    "name": "linyuee/excel",
+    "description": "excel导出工具包",
+    "version": "0.0.1",
+    "require": {
+        "php": ">=5.5",
+        "phpoffice/phpexcel": "^1.8"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Linyuee\\": "src/"
+
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "linyue",
+            "email": "769353695@qq.com"
+        }
+    ]
+}
