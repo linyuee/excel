@@ -4,8 +4,7 @@
     "version": "1.0.0",
     "require": {
         "php": ">=5.5",
-        "phpoffice/phpexcel": "^1.8",
-        "linyuee/excel": "0.0.1"
+        "phpoffice/phpexcel": "^1.8"
     },
     "require-dev": {
     },
