@@ -2,22 +2,23 @@
 /**
  * Created by PhpStorm.
  * User: yuelin
- * Date: 2017/12/15
- * Time: 下午3:30
+ * Date: 2018/3/7
+ * Time: 上午11:57
  */
-namespace Linyuee;
-//include_once "../../../phpoffice/phpexcel/Classes/PHPExcel.php";
+
+namespace Linyuee\Excel;
+
+
 use Linyuee\Exception\ApiException;
 
-class Excel
+class Export
 {
-
-    protected $fileName;
-    protected $title;
-    protected $data;
-    protected $startIndex = 'A';
-    protected $ext = 'xls';//文件扩展名
-
+    private $fileName;
+    private $title;
+    private $data;
+    private $startIndex = 'A';
+    private $ext = 'xls';//文件扩展名
+    private static $support_ext = ['xls','xlsx','csv'];
     public function setData(array $data){
         $this->data = $data;
         return $this;
@@ -45,6 +46,9 @@ class Excel
     }
 
     public function setFileExt($ext){
+        if (!in_array($ext,self::$support_ext)){
+            throw new ApiException('不支持该扩展类型');
+        }
         $this->ext = $ext;
         return $this;
     }
@@ -97,6 +101,4 @@ class Excel
         $objWriter->save('php://output');
         exit;
     }
-
-
 }

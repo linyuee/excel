@@ -5,6 +5,8 @@ PHPExcel工具包
 composer require linyuee/excel
 
 ### 2、使用
+
+#### 导出数据
 ```
 //导出的数据
 $data = array(
@@ -19,11 +21,17 @@ $sheettitle = array(
             'phone'=>'联系方式',
         );
 //导出的数据和标题数组的key要一致
-$excel = new \Linyuee\Excel();
+$excel = new \Linyuee\Excel\Export();
         $excel->setData($data)
             ->setFileName('问卷答题情况')
             ->setTitle($sheettitle)
             ->setStartIndex('B')
             ->setFileExt('csv')  //目前支持csv，xls，xlsx
             ->export();        
+```
+#### 读取文件数据
+```angular2html
+$excel = new \Linyuee\Excel\Import();
+        $data = $excel->setPath('/disk2/123.xlsx')->read();
+        var_dump($data);
 ```
